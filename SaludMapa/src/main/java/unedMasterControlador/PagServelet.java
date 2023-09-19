@@ -1,5 +1,6 @@
 package unedMasterControlador;
 
+// Importe de librerias
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -22,27 +23,29 @@ public class PagServelet extends HttpServlet {
        
     /**
      * @see HttpServlet#HttpServlet()
+     * Constructor
      */
     public PagServelet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
-	 */
+	 // Método que maneja las peticiones y respuestas HTTP
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		// Obtiene el numero de pagina actual desde la peticion
 		String currentPageNo = request.getParameter("currentpageno");
-		int pageNo = 1;
+		int pageNo = 1; // Numero de pagina por defecto
 		if(currentPageNo!=null) {
+			// Convierte el numero de pagina a entero 
 			pageNo =Integer.parseInt(currentPageNo);
 		}
-		
+
+		// Obtiene la lista de indicadores de salud para la pagina actual
 		ArrayList<HealthIndicadores> listadoIndicadores1=HealthIndicadoresDbd.getHealthIndicadoresList(pageNo);
 		
 		
-		
+		// Establece los atributos para la vista
 		request.setAttribute("listadoIndicadores1", listadoIndicadores1);
 		request.setAttribute("currentpageno", pageNo);
 		request.setAttribute("totalPage", HealthIndicadoresDbd.getTotalPage());
