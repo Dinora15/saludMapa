@@ -8,7 +8,9 @@ private String indicador_code;
 private String country_code;
 private String year;
 
-
+/**
+ * Clase Data: Representa un conjunto de datos relacionados con un indicador, país y año.
+ */
 
 
 public Data() {
@@ -16,6 +18,14 @@ public Data() {
 	// TODO Auto-generated constructor stub
 }
 
+ /**
+     * Constructor con parámetros.
+     *
+     * @param indicador_code Código del indicador.
+     * @param country_code   Código del país.
+     * @param year           Año de los datos.
+     */
+	
 
 public Data(String indicador_code, String country_code, String year) {
 	super();
