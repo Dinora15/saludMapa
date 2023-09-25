@@ -2,6 +2,10 @@ package unedMasterJavaModelo;
 import java.util.*;
 import java.sql.*;
 
+/**
+ * Clase DataDbd: Se encarga de realizar operaciones con la base de datos relacionadas con la clase Data.
+ */
+
 public class DataDbd {
 	
 	 private Connection connection;
@@ -17,6 +21,12 @@ public class DataDbd {
 	    public DataDbd() {
 	        connection = Conector.getConnection();
 	    }
+
+	 /**
+     * Obtiene una lista de objetos Data para una página específica.
+     * @param pageNo Número de página.
+     * @return Lista de datos para la página especificada.
+     */
 
 	    public static ArrayList<Data> getDataList(int pageNo){
 			 ArrayList<Data> list = new ArrayList<Data>();
