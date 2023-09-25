@@ -1,5 +1,9 @@
 package unedMasterJavaModelo;
 
+/**
+ * Clase Country: Representa un país con su código y nombre. 
+ */
+
 public class Country {
 
 	private String country_code;
@@ -13,6 +17,12 @@ public class Country {
 	}
 
 
+/**
+     * Constructor con parámetros.
+     *
+     * @param country_code Código del país.
+     * @param country_name Nombre del país.
+     */
 
 	public Country(String country_code, String country_name) {
 		super();
