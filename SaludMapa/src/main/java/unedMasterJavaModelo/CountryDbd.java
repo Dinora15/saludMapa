@@ -2,6 +2,11 @@ package unedMasterJavaModelo;
 import java.util.*;
 import java.sql.*;
 
+/**
+ * Clase CountryDbd: Sirve como intermediario entre la aplicación y la base de datos
+ * para operaciones relacionadas con el modelo Country.
+ */
+
 public class CountryDbd {
 	
 	 private Connection connection;
@@ -17,6 +22,13 @@ public class CountryDbd {
 	 public CountryDbd() {
 	        connection = Conector.getConnection();
 	    }
+
+	/**
+	 * Obtiene una lista paginada de países.
+	 *
+	 * @param pageNo Número de página que se desea obtener.
+	 * @return Lista de países para la página solicitada.
+	 */
 	 
 	 public static ArrayList<Country> getCountryList(int pageNo){
 		 ArrayList<Country> list = new ArrayList<Country>();
@@ -38,6 +50,13 @@ public class CountryDbd {
 	        return list; 
 	
 	 }
+
+	/**
+	 * Verifica si un país existe en la base de datos por su código.
+	 *
+	 * @param country País que se quiere verificar.
+	 * @return Verdadero si existe, falso en caso contrario.
+	 */
 	 
 	 public boolean ExisteCountry(Country country) {
 	    	Boolean salida = null;
@@ -57,7 +76,15 @@ public class CountryDbd {
 	        }
 			return salida;
 	    }
+
 	 
+	/**
+	 * Añade un nuevo país a la base de datos.
+	 *
+	 * @param country País que se desea añadir.
+  
+	 **/
+	
 	 public void addCountry(Country country) {
 	        try {
 	            PreparedStatement preparedStatement = connection
@@ -71,7 +98,13 @@ public class CountryDbd {
 	            e.printStackTrace();
 	        }
 	    }
-	 
+
+
+	/**
+	 * Elimina un país de la base de datos por su código.
+	 *
+	 * @param code Código del país que se desea eliminar.
+	 */
 	 public void deleteCountry(String code) {
 	        try {
 	            PreparedStatement preparedStatement = connection
@@ -84,7 +117,13 @@ public class CountryDbd {
 	            e.printStackTrace();
 	        }
 	    }
-	 
+
+
+	/**
+	 * Actualiza los detalles de un país en la base de datos.
+	 *
+	 * @param country País que se desea actualizar.
+	 */
 	 public void updateCountry(Country country) {
 	        try {
 	            PreparedStatement preparedStatement = connection
@@ -102,7 +141,11 @@ public class CountryDbd {
 	 }
 	        
 	        
-	        
+	      /**
+	 * Obtiene el número total de páginas para paginación.
+	 *
+	 * @return Número total de páginas.
+	 */  
 	       
 	        public static int getTotalPage() {
 	        	int totalCount = 0;
@@ -125,7 +168,6 @@ public class CountryDbd {
 	        }
 
 	 
-	 
 	 public List<Country> getAllCountry() {
 	        List<Country> countries = new ArrayList<Country>();
 	        try {
@@ -143,7 +185,13 @@ public class CountryDbd {
 
 	        return countries;
 }
-	 
+
+	/**
+	 * Obtiene un país de la base de datos por su código.
+	 *
+	 * @param code Código del país que se desea obtener.
+	 * @return País correspondiente al código proporcionado.
+	 */
 	 public Country getCountryByCode(String code) {
 	    	Country country = new Country("","");
 	        try {
@@ -162,6 +210,13 @@ public class CountryDbd {
 
 	        return country;
 	    }
+
+	/**
+	 * Obtiene una lista de países de la base de datos filtrados por su código.
+	 *
+	 * @param countryCode Código del país para filtrar.
+	 * @return Lista de países filtrados por código.
+	 */
 	 
 	  public List<Country> getCountry(String countryCode) {
 	        List<Country> countries = new ArrayList<Country>();
