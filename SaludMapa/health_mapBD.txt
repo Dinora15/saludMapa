@@ -1,0 +1,282 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 08-09-2023 a las 00:43:19
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `health_map`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `country`
+--
+
+CREATE TABLE `country` (
+  `country_id` int(11) NOT NULL,
+  `country_name` varchar(50) NOT NULL,
+  `country_code` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `country`
+--
+
+INSERT INTO `country` (`country_id`, `country_name`, `country_code`) VALUES
+(13, 'Arab World', 'ARB'),
+(14, 'United Arab Emirates', 'ARE'),
+(16, 'Armenia', 'ARM'),
+(17, 'American Samoa', 'ASM'),
+(19, 'Aruba', 'ABW'),
+(20, 'Afghanistan', 'AFG'),
+(21, 'Angola', 'AGO'),
+(22, 'Albania', 'ALB'),
+(23, 'Andorra', 'AND'),
+(24, 'Argentina', 'ARG'),
+(25, 'Mexico', 'MEX'),
+(26, 'Italia', 'ITA');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `data`
+--
+
+CREATE TABLE `data` (
+  `id_data` int(11) NOT NULL,
+  `indicador_code` varchar(50) NOT NULL,
+  `country_code` varchar(10) NOT NULL,
+  `year` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `data`
+--
+
+INSERT INTO `data` (`id_data`, `indicador_code`, `country_code`, `year`) VALUES
+(1, 'SP.UWT.TFRT', 'ABW', '000000000'),
+(2, 'SP.REG.DTHS.ZS', 'ABW', '000000000000'),
+(5, 'SP.REG.BRTH.ZS', 'ABW', '00000000000'),
+(6, 'SP.REG.BRTH.UR.ZS', 'ABW', '000000000'),
+(7, 'SP.REG.BRTH.RU.ZS', 'ABW', '00000000'),
+(8, 'SP.REG.BRTH.MA.ZS', 'ABW', '00000000'),
+(9, 'SP.REG.BRTH.FE.ZS', 'ABW', '00000000'),
+(10, 'SP.POP.TOTL.MA.ZS', 'ABW', '47.4823288\r\n'),
+(11, 'SP.POP.TOTL.MA.IN', 'ABW', '49982\r\n'),
+(12, 'SP.POP.TOTL.FE.ZS', 'ABW', '52.5176712\r\n'),
+(14, 'SP.UWT.TFRT', 'AFG', '24.5_2015'),
+(15, 'SP.REG.DTHS.ZS', 'AFG', '0000000000'),
+(16, 'SP.REG.BRTH.ZS', 'AFG', '42.3_2015'),
+(17, 'SP.REG.BRTH.UR.ZS', 'AFG', '63.5_2015'),
+(18, 'SP.REG.BRTH.RU.ZS', 'AFG', '35_2015'),
+(19, 'SP.REG.BRTH.MA.ZS', 'AFG', '42.7'),
+(20, 'SP.REG.BRTH.FE.ZS', 'AFG', '41.9_2015'),
+(21, 'SP.POP.TOTL.MA.ZS', 'AFG', '51.53349065\r\n'),
+(22, 'SP.POP.TOTL.MA.IN', 'AFG', '18309891\r\n'),
+(23, 'SP.POP.TOTL.FE.ZS', 'AFG', '48.46650935\r\n'),
+(24, 'SP.UWT.TFRT', 'AGO', '38(2016)'),
+(25, 'SP.REG.DTHS.ZS', 'AGO', '00000'),
+(26, 'SP.REG.BRTH.ZS', 'AGO', '25(2016)'),
+(27, 'SP.REG.BRTH.UR.ZS', 'AGO', '32.9(2016)'),
+(28, 'SP.REG.BRTH.RU.ZS', 'AGO', '13.6(2016)'),
+(29, 'SP.REG.BRTH.MA.ZS', 'AGO', '24.8(2016)'),
+(31, 'SP.REG.BRTH.FE.ZS', 'AGO', '25.2(2016)'),
+(32, 'SP.POP.TOTL.MA.ZS', 'AGO', '49.03696374(2017)\r\n\r\n'),
+(33, 'SP.POP.TOTL.MA.IN', 'AGO', '14605264(2017)\r\n'),
+(36, 'SP.POP.TOTL.FE.ZS', 'AGO', '50.96303626(2017)\r\n'),
+(37, 'SP.UWT.TFRT', 'ALB', '12.9(2009)'),
+(38, 'SP.REG.DTHS.ZS', 'ALB', '53(2009)'),
+(39, 'SP.REG.BRTH.ZS', 'ALB', '53(2009)'),
+(40, 'SP.REG.BRTH.UR.ZS', 'ALB', '98.6(2009)'),
+(41, 'SP.REG.BRTH.RU.ZS', 'ALB', '98.6(2009)'),
+(42, 'SP.REG.BRTH.MA.ZS', 'ALB', '99(200)'),
+(43, 'SP.REG.BRTH.FE.ZS', 'ALB', '97.9(2009)'),
+(44, 'SP.POP.TOTL.MA.ZS', 'ALB', '50.47957886(2017)\r\n'),
+(45, 'SP.POP.TOTL.MA.IN', 'ALB', '1450509 (2017)\r\n\r\n'),
+(46, 'SP.POP.TOTL.FE.ZS', 'ALB', '49.52042114(2017)\r\n'),
+(47, 'SP.UWT.TFRT', 'AND', '000000'),
+(48, 'SP.REG.DTHS.ZS', 'AND', '80(2010)'),
+(49, 'SP.REG.BRTH.ZS', 'AND', '100(2012)'),
+(50, 'SP.REG.BRTH.UR.ZS', 'AND', '00000'),
+(51, 'SP.REG.BRTH.RU.ZS', 'AND', '000000'),
+(52, 'SP.REG.BRTH.MA.ZS', 'AND', '000000'),
+(53, 'SP.REG.BRTH.FE.ZS', 'AND', '000000'),
+(54, 'SP.POP.TOTL.MA.ZS', 'AND', '0000000'),
+(55, 'SP.POP.TOTL.MA.IN', 'AND', '000000'),
+(56, 'SP.POP.TOTL.FE.ZS', 'AND', '000000'),
+(57, 'SP.UWT.TFRT', 'ARB', '14.34074535(2014)\r\n'),
+(58, 'SP.REG.DTHS.ZS', 'ARB', '00000'),
+(59, 'SP.REG.BRTH.ZS', 'ARB', '86.55155854(2013)\r\n'),
+(60, 'SP.REG.BRTH.UR.ZS', 'ARB', '000000'),
+(61, 'SP.REG.BRTH.RU.ZS', 'ARB', '0000'),
+(62, 'SP.REG.BRTH.MA.ZS', 'ARB', '00000'),
+(63, 'SP.REG.BRTH.FE.ZS', 'ARB', '51.79596761(2017)\r\n\r\n'),
+(64, 'SP.POP.TOTL.MA.ZS', 'ARB', '48.20403239(2017)\r\n'),
+(65, 'SP.POP.TOTL.MA.IN', 'ARB', '214690084(2017)\r\n'),
+(66, 'SP.POP.TOTL.FE.ZS', 'ARB', '48.20403239(2017)\r\n'),
+(67, 'SP.UWT.TFRT', 'ARE', '000000'),
+(68, 'SP.REG.DTHS.ZS', 'ARE', '87(2009)'),
+(69, 'SP.REG.BRTH.ZS', 'ARE', '100(2012)'),
+(70, 'SP.REG.BRTH.UR.ZS', 'ARE', '0000'),
+(71, 'SP.REG.BRTH.RU.ZS', 'ARE', '00000'),
+(72, 'SP.REG.BRTH.MA.ZS', 'ARE', '0000'),
+(73, 'SP.REG.BRTH.FE.ZS', 'ARE', '00000'),
+(74, 'SP.POP.TOTL.MA.ZS', 'ARE', '72.40361058(2017)\r\n'),
+(75, 'SP.POP.TOTL.MA.IN', 'ARE', '6806044(2017)\r\n'),
+(76, 'SP.POP.TOTL.FE.ZS', 'ARE', '27.59638942(2017)\r\n'),
+(77, 'SP.UWT.TFRT', 'ARG', '000000'),
+(78, 'SP.REG.DTHS.ZS', 'ARG', '99.9(2002)'),
+(79, 'SP.REG.BRTH.ZS', 'ARG', '99.5(2012)'),
+(80, 'SP.REG.BRTH.UR.ZS', 'ARG', '00000'),
+(81, 'SP.REG.BRTH.RU.ZS', 'ARG', '00000'),
+(82, 'SP.REG.BRTH.MA.ZS', 'ARG', '00000'),
+(83, 'SP.REG.BRTH.FE.ZS', 'ARG', '0000000'),
+(84, 'SP.POP.TOTL.MA.ZS', 'ARG', '48.94365698(2017)\r\n'),
+(85, 'SP.POP.TOTL.MA.IN', 'ARG', '21667866(2017)\r\n'),
+(86, 'SP.POP.TOTL.FE.ZS', 'ARG', '51.05634302(2017)\r\n'),
+(87, 'SP.UWT.TFRT', 'ARM', '12.5(2016)'),
+(88, 'SP.REG.DTHS.ZS', 'ARM', '000000'),
+(89, 'SP.REG.BRTH.ZS', 'ARM', '98.7(2016)'),
+(90, 'SP.REG.BRTH.UR.ZS', 'ARM', '99.1(2016)'),
+(91, 'SP.REG.BRTH.RU.ZS', 'ARM', '98.1(2016)'),
+(92, 'SP.REG.BRTH.MA.ZS', 'ARM', '98.9(2016)'),
+(93, 'SP.REG.BRTH.FE.ZS', 'ARM', '98.5(2016)'),
+(94, 'SP.POP.TOTL.MA.ZS', 'ARM', '47.03517118(2017)\r\n'),
+(95, 'SP.POP.TOTL.MA.IN', 'ARM', '1378342(2017)\r\n'),
+(96, 'SP.POP.TOTL.FE.ZS', 'ARM', '52.96482882(2017)\r\n'),
+(97, 'SP.UWT.TFRT', 'ASM', '00000'),
+(98, 'SP.REG.DTHS.ZS', 'ASM', '00000'),
+(99, 'SP.REG.BRTH.ZS', 'ASM', '000000'),
+(100, 'SP.REG.BRTH.UR.ZS', 'ASM', '00000'),
+(101, 'SP.REG.BRTH.RU.ZS', 'ASM', '0000000'),
+(102, 'SP.REG.BRTH.MA.ZS', 'ASM', '000000'),
+(103, 'SP.REG.BRTH.FE.ZS', 'ASM', '00000'),
+(104, 'SP.POP.TOTL.MA.ZS', 'ASM', '0000000'),
+(105, 'SP.POP.TOTL.MA.IN', 'ASM', '000000'),
+(106, 'SP.POP.TOTL.FE.ZS', 'ASM', '000000');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `healthindicadores`
+--
+
+CREATE TABLE `healthindicadores` (
+  `id_indicadores` int(11) NOT NULL,
+  `indicador_code` varchar(50) NOT NULL,
+  `indicador_name` varchar(50) NOT NULL,
+  `source_nota` varchar(1000) NOT NULL,
+  `source_organization` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `healthindicadores`
+--
+
+INSERT INTO `healthindicadores` (`id_indicadores`, `indicador_code`, `indicador_name`, `source_nota`, `source_organization`) VALUES
+(1, 'SP.UWT.TFRT', 'Unmet need for contraception (% of married women a', 'Unmet need for contraception is the percentage of fertile, married women of reproductive age who do not want to become pregnant and are not using contraception.\r\n', 'Household surveys, including Demographic and Health Surveys and Multiple Indicator Cluster Surveys. Largely compiled by United Nations Population Division.\r\n'),
+(11, 'SP.REG.DTHS.ZS', 'Completeness of death registration with cause-of-d', 'Completeness of death registration is the estimated percentage of deaths that are registered with their cause of death information in the vital registration system of a country.\r\n', 'World Health Organization, Global Health Observatory Data Repository/World Health Statistics (http://apps.who.int/gho/data/node.main.1?lang=en).\r\n'),
+(13, 'SP.REG.BRTH.ZS', 'Completeness of birth registration (%)', 'Completeness of birth registration is the percentage of children under age 5 whose births were registered at the time of the survey. The numerator of completeness of birth registration includes children whose birth certificate was seen by the interviewer or whose mother or caretaker says the birth has been registered.\r\n', 'UNICEF\'s State of the World\'s Children based mostly on household surveys and ministry of health data.\r\n'),
+(14, 'SP.REG.BRTH.UR.ZS', 'Completeness of birth registration, urban (%)', 'Completeness of birth registration is the percentage of children under age 5 whose births were registered at the time of the survey. The numerator of completeness of birth registration includes children whose birth certificate was seen by the interviewer or whose mother or caretaker says the birth has been registered.\r\n', 'UNICEF\'s State of the World\'s Children based mostly on household surveys and ministry of health data.\r\n'),
+(15, 'SP.REG.BRTH.RU.ZS', 'Completeness of birth registration, rural (%)', 'Completeness of birth registration is the percentage of children under age 5 whose births were registered at the time of the survey. The numerator of completeness of birth registration includes children whose birth certificate was seen by the interviewer or whose mother or caretaker says the birth has been registered.\r\n', 'UNICEF\'s State of the World\'s Children based mostly on household surveys and ministry of health data.\r\n'),
+(16, 'SP.REG.BRTH.MA.ZS', 'Completeness of birth registration, male (%)', 'Completeness of birth registration is the percentage of children under age 5 whose births were registered at the time of the survey. The numerator of completeness of birth registration includes children whose birth certificate was seen by the interviewer or whose mother or caretaker says the birth has been registered.\r\n', 'UNICEF\'s State of the World\'s Children based mostly on household surveys and ministry of health data.\r\n'),
+(17, 'SP.REG.BRTH.FE.ZS', 'Completeness of birth registration, female (%)', 'Completeness of birth registration is the percentage of children under age 5 whose births were registered at the time of the survey. The numerator of completeness of birth registration includes children whose birth certificate was seen by the interviewer or whose mother or caretaker says the birth has been registered.\r\n', 'UNICEF\'s State of the World\'s Children based mostly on household surveys and ministry of health data.\r\n'),
+(18, 'SP.POP.TOTL.MA.ZS', 'Population, male (% of total)', 'Male population is the percentage of the population that is male. Population is based on the de facto definition of population, which counts all residents regardless of legal status or citizenship.\r\n', 'World Bank staff estimates based on age/sex distributions of United Nations Population Division\'s World Population Prospects: 2017 Revision.\r\n'),
+(19, 'SP.POP.TOTL.MA.IN', 'Population, male', 'Male population is based on the de facto definition of population, which counts all male residents regardless of legal status or citizenship.\r\n', 'World Bank staff estimates using the World Bank\'s total population and age/sex distributions of the United Nations Population Division\'s World Population Prospects: 2017 Revision.\r\n'),
+(20, 'SP.POP.TOTL.FE.ZS', 'Population, female (% of total)', 'Female population is the percentage of the population that is female. Population is based on the de facto definition of population, which counts all residents regardless of legal status or citizenship.\r\n', 'World Bank staff estimates based on age/sex distributions of United Nations Population Division\'s World Population Prospects: 2017 Revision.\r\n');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id_usuario` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `clave` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id_usuario`, `nombre`, `clave`) VALUES
+(1, 'Administrador', 'dinora'),
+(2, 'Analista', 'lucia');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `country`
+--
+ALTER TABLE `country`
+  ADD PRIMARY KEY (`country_id`);
+
+--
+-- Indices de la tabla `data`
+--
+ALTER TABLE `data`
+  ADD PRIMARY KEY (`id_data`);
+
+--
+-- Indices de la tabla `healthindicadores`
+--
+ALTER TABLE `healthindicadores`
+  ADD PRIMARY KEY (`id_indicadores`);
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id_usuario`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `country`
+--
+ALTER TABLE `country`
+  MODIFY `country_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT de la tabla `data`
+--
+ALTER TABLE `data`
+  MODIFY `id_data` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+
+--
+-- AUTO_INCREMENT de la tabla `healthindicadores`
+--
+ALTER TABLE `healthindicadores`
+  MODIFY `id_indicadores` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
